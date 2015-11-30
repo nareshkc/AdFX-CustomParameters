@@ -18,24 +18,15 @@ public class Test extends Driver{
 
 	public static void main(String[] args) throws Exception {
 
-		//Delete the log existed file
-		DeleteFile DF = new DeleteFile();
-		File_Exist FE = new File_Exist();
-		if(FE.fileexist()) {
-			DF.deleteFile();
-
-		} else {
-			System.out.println("File not exist");
-		}
-
+		
 
 
 
 
 		//Install the app
-		Install_the_app install=new Install_the_app();
-		install.install();
-		Thread.sleep(2000);
+//		Install_the_app install=new Install_the_app();
+//		install.install();
+//		Thread.sleep(2000);
 
 
 
@@ -47,14 +38,14 @@ public class Test extends Driver{
 
 
 		//Check and Delete the log file befor the test 
-//		DeleteFile DF = new DeleteFile();
-//		File_Exist FE = new File_Exist();
-//		if(FE.fileexist()) {
-//			DF.deleteFile();
-//
-//		} else {
-//			System.out.println("File not exist");
-//		}
+		DeleteFile DF = new DeleteFile();
+		File_Exist FE = new File_Exist();
+		if(FE.fileexist()) {
+			DF.deleteFile();
+
+		} else {
+			System.out.println("File not exist");
+		}
 
 		//Verify Custom parameters
 		Cust_param cp= new Cust_param();

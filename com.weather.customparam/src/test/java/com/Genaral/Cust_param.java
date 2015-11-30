@@ -72,6 +72,7 @@ public class Cust_param extends Driver {
 				//System.out.println("index of second one ::::"+sb.toString().indexOf("Oct  9 12:43:59 iPod TheWeather[686] <Warning>: Get"));
 				String req = sb.toString().substring( sb.toString().lastIndexOf("Requesting ad: /7646/app_iphone_us/display/feed/feed_1 with parameters: {"));
 				String Cust_param = req.substring(req.indexOf("{")+1,req.indexOf("}"));
+				req =req.replace("Requesting ad: /7646/app_iphone_us/display/feed/feed_1 with parameters: {", "");
 				System.out.println("custom data ::"+Cust_param);
 				String[] arrays = req.split(";");
 				System.out.println("Verifing the "+req);
@@ -85,7 +86,7 @@ public class Cust_param extends Driver {
 
 				//First Test Cases
 
-				for(int testcase=1;testcase<=32;testcase++)
+				for(int testcase=1;testcase<=45;testcase++)
 				{
 
 					String param = data[testcase][4].toString();
