@@ -52,7 +52,11 @@ public class Test extends Driver{
 
 		cp.custparam();
 
-		//appium.stopAppiumServer();		
+		//appium.stopAppiumServer();	
+		
+		
+		//Ad.close();
+		//Ad.quit();
 
 
 	}

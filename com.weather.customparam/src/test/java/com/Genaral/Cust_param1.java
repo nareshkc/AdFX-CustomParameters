@@ -96,7 +96,7 @@ public class Cust_param1 extends Driver {
 				//Read Excel
 				String[][] data = new String[10][10];
 				ExcelData er = new ExcelData();
-				data = er.excelread();
+				data = er.excelread("SMOKE");
 
 				//First Test Cases
 				
@@ -121,6 +121,7 @@ public class Cust_param1 extends Driver {
 
 
 							if (param.trim().equals(key[0].trim())) {
+								System.out.println("Param value is ::"+ param);
 								String ExactValue = key[key.length - 1];
 								System.out.println("The value is :" + ExactValue);
 

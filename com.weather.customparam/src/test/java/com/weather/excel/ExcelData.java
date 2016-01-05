@@ -9,14 +9,18 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.Genaral.Driver;
+import com.Genaral.PropertyFile;
 
 public class ExcelData extends Driver {
 
-    public String[][] excelread() throws Exception {
+    public String[][] excelread(String Type) throws Exception {
+    	
+    	Driver.property();
+		PropertyFile.property();
 	File f = new File(properties.getProperty("ExcelFilePath"));
 	FileInputStream fis = new FileInputStream(f);
 	HSSFWorkbook wb = new HSSFWorkbook(fis);
-	HSSFSheet ws = wb.getSheet("SMOKE");
+	HSSFSheet ws = wb.getSheet(Type);
 
 	int rownum = ws.getLastRowNum() + 1;
 	int colnum = ws.getRow(0).getLastCellNum();

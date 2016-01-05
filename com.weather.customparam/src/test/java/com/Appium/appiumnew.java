@@ -60,13 +60,16 @@ public class appiumnew extends Driver{
 		capabilities.setCapability("forceIphone", true);
 
 		//capabilities.setCapability("udid","707cc1d9c294b37fe5e70b7584163a100ae6166f");
-		capabilities.setCapability("app", properties.getProperty("appPath"));
+		capabilities.setCapability("app", "/Users/aparna/Documents/Naresh/com.weather.customparam/build/TheWeather.ipa");
+				//Users/aparna/Downloads/weat/TheWeather.app");
+				//properties.getProperty("appPath"));
 		capabilities.setCapability("appPackage", "com.weather.Weather");
 		capabilities.setCapability("appActivity", "com.weather.Weather.app.SplashScreenActivity");
 		capabilities.setCapability("newCommandTimeout", 100000);
+		capabilities.setCapability("autoAcceptAlerts",true);
 		System.out.println("Capabilities done");
-		Thread.sleep(50000);
-		AppiumDriver Ad = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		Thread.sleep(70000);
+		 Ad = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		Ad.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		System.out.println("Working fine");
 

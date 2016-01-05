@@ -71,7 +71,7 @@ public class Capabilities extends Driver  {
 		capabilities.setCapability("device", "iPhone");
 		capabilities.setCapability("udid","707cc1d9c294b37fe5e70b7584163a100ae6166f");
 		//capabilities.setCapability("udid","c87e18b1235f1480f32f2725762260fb893492b9");
-		capabilities.setCapability("app", "/Users/aparna/Documents/Naresh/com.Weather.TWC/Build/TheWeather.ipa");
+		//capabilities.setCapability("app", "/Users/aparna/Documents/Naresh/com.Weather.TWC/Build/TheWeather.ipa");
 		capabilities.setCapability("appPackage", "com.weather.Weather");
 		capabilities.setCapability("appActivity", "com.weather.Weather.app.SplashScreenActivity");
 		capabilities.setCapability("newCommandTimeout", 100000);

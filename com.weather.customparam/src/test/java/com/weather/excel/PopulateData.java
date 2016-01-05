@@ -3,10 +3,17 @@ package com.weather.excel;
 public class PopulateData {
 
     public static void main(String[] args) throws Exception {
-	String[][] data = new String[10][10];
-	ExcelData er = new ExcelData();
-	er.excelread();
-
+	String[][] data = new String[20][10];
+//	ExcelData er = new ExcelData();
+//	er.excelread();
 	
+	Excelread_Validation exv= new Excelread_Validation();
+	data = exv.excelreadvalidation("tmp");
+	
+	
+	for (int k=1;k<=17;k++){
+		System.out.println("J value is ::"+k);
+		System.out.println("data is ::"+data[k][1]);
+	}
     }
 }

@@ -19,7 +19,7 @@ public class Start_Stop_AppiumServer  {
 		command.addArgument("127.0.0.1");
 		command.addArgument("--port", false);
 		command.addArgument("4723");
-		command.addArgument("--no-reset", false);
+		command.addArgument("--no-reset", true);
 		command.addArgument("--log-level", false);
 		command.addArgument("error");
 		//command.addArgument("--log");
