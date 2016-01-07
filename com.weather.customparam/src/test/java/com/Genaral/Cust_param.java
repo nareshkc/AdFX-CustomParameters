@@ -15,6 +15,9 @@ import java.util.Map;
 import org.openqa.jetty.html.Page;
 
 import Validations.Custparam_UV;
+import Validations.Custparam_fhic;
+import Validations.Custparam_floc;
+import Validations.Custparam_fltmpc;
 import Validations.Custparam_hmid;
 import Validations.Custparam_sev;
 import Validations.Custparam_tmp;
@@ -189,7 +192,25 @@ public class Cust_param extends Driver {
 														{
 															Custparam_sev sev = new Custparam_sev();
 															sev.sev();
-														}
+														}else
+															//************Validation for fltmpc param*******//
+															if(ParamType.equals("fltmpc"))
+															{
+																Custparam_fltmpc fltmpc = new Custparam_fltmpc();
+																fltmpc.fltmpc();
+															}else
+																//************Validation for floc param*******//
+																if(ParamType.equals("floc"))
+																{
+																	Custparam_floc floc = new Custparam_floc();
+																	floc.floc();
+																}else
+																	//************Validation for fhic param*******//
+																	if(ParamType.equals("fhic"))
+																	{
+																		Custparam_fhic fhic = new Custparam_fhic();
+																		fhic.fhic();
+																	}
 
 
 									//Write results into Excel

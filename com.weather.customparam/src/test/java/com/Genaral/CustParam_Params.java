@@ -10,10 +10,14 @@ public class CustParam_Params extends Driver {
 	public static String tmpr_val2=null;
 	public static String windvalue2 =null;
 	public static String sevvalue1 =null;
+	public static String fltmpcvalue1=null;
+	public static String flocvalue1 = null;
+	public static String fhicvalue1 = null;
 	public void params(){
 
 		String tmp_val1 = null;
 		String tmpr_val1 = null;
+		String fhfl =null;
 		//Tmp Value
 		for(int i=1;i<=2;i++)
 		{
@@ -30,17 +34,49 @@ public class CustParam_Params extends Driver {
 				System.out.println("sevvalue is ::"+sevvalue1);
 				tmp_val1=el1.getText();
 				tmpr_val1 =el1.getText();
+				fhfl = Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[4]").getText();
+
 				break;
 			}else
 			{
 
 				tmp_val1=el.getText();
 				tmpr_val1 =el.getText();
-                sevvalue1="No allert";
-
+				sevvalue1="No allert";
+				fhfl = Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[3]").getText();
 				break;
 			}
 		}
+
+		//floc values are
+
+		String [] flfh = fhfl.split("/");
+		if(flfh[1].toString().contains("--")){
+			flocvalue1 = "-17";
+		}else{
+			flocvalue1 = flfh[1].toString().replace("°", "");
+		}
+
+
+		// fhic values are
+		if(flfh[0].toString().contains("--")){
+			fhicvalue1 = "-17";
+		}else{
+			fhicvalue1 = flfh[0].toString().replace("°", "");
+		}
+
+		//fltmpc values is
+		String fltmpcvalue2 = Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[2]/UIAStaticText[2]").getText();
+		System.out.println("fltmpc is ::"+fltmpcvalue2);
+		fltmpcvalue2=fltmpcvalue2.replace("°", "");
+		int fltmpcvalue3 = Integer.parseInt(fltmpcvalue2);
+		fltmpcvalue3 = fltmpcvalue3-32;
+		double  fltmpcvalue4 = (double) ((fltmpcvalue3)*(0.55));
+		System.out.println("double value is::"+fltmpcvalue4);
+		fltmpcvalue3=(int) fltmpcvalue4;
+		fltmpcvalue1 = Integer.toString(fltmpcvalue3);
+		System.out.println("converted fltmpc ::"+fltmpcvalue1);
+
 
 
 		//tmp value is
