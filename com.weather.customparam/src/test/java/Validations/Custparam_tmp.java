@@ -31,26 +31,6 @@ public class Custparam_tmp extends Driver{
 	public static String Result =null;
 	
 	public void tmp() throws Exception{
-
-		
-//		for(int i=1;i<=2;i++)
-//		{
-//			MobileElement el = (MobileElement) Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText["+i+"]");
-//
-//			System.out.println("Element el is ::"+el.getText());
-//
-//			if(el.getText().contains(" "))
-//			{
-//				System.out.println("Allert present");
-//			}else
-//			{
-//
-//				tmp_val =el.getText();
-//
-//
-//				break;
-//			}
-//		}
 		
 		tmp_val=CustParam_Params.tmp_val2;
 		Cust_param cp = new Cust_param();
@@ -68,6 +48,12 @@ public class Custparam_tmp extends Driver{
 			data = er.excelread("tmp");
 			
 			Write_result wrResult = new Write_result();
+			
+			//fill n in last column
+			for(int filln = 1;filln<=18;filln++){
+				wrResult.WriteResult("tmp","n",filln,3);
+			}
+			
 			
 			if(ActualTemp.contains("-") ||tempval>100 ){
 				

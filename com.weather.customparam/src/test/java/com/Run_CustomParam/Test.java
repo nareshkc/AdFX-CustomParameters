@@ -50,7 +50,7 @@ public class Test extends Driver{
 		//Verify Custom parameters
 		Cust_param cp= new Cust_param();
 
-		cp.custparam();
+		//cp.custparam();
 
 		//appium.stopAppiumServer();	
 		

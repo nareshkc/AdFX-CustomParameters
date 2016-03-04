@@ -60,7 +60,7 @@ public class appiumnew extends Driver{
 		capabilities.setCapability("forceIphone", true);
 
 		//capabilities.setCapability("udid","707cc1d9c294b37fe5e70b7584163a100ae6166f");
-		capabilities.setCapability("app", "/Users/aparna/Documents/Naresh/com.weather.customparam/build/TheWeather.ipa");
+		//capabilities.setCapability("app", "/Users/aparna/Documents/Naresh/com.weather.customparam/build/TheWeather.ipa");
 				//Users/aparna/Downloads/weat/TheWeather.app");
 				//properties.getProperty("appPath"));
 		capabilities.setCapability("appPackage", "com.weather.Weather");

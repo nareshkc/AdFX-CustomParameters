@@ -14,25 +14,6 @@ public class Custparam_tmpr extends Driver{
 
 	public void tmpr() throws Exception{
 
-
-//		for(int i=1;i<=2;i++)
-//		{
-//			MobileElement el = (MobileElement) Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText["+i+"]");
-//
-//			System.out.println("Element el is ::"+el.getText());
-//
-//			if(el.getText().contains(" "))
-//			{
-//				System.out.println("Allert present");
-//			}else
-//			{
-//
-//				tmpr_val =el.getText();
-//
-//
-//				break;
-//			}
-//		}
 		tmpr_val=CustParam_Params.tmpr_val2;
 		Cust_param cp = new Cust_param();
 		//System.out.println("tmp value is ::"+tmp_val);
@@ -47,6 +28,10 @@ public class Custparam_tmpr extends Driver{
 			data = er.excelread("tmpr");
 			Write_result wrResult = new Write_result();
 			System.out.println("tmpr value is:" + tmpr_val);
+			
+			for(int filln = 1;filln<=8;filln++){
+				wrResult.WriteResult("tmpr","n",filln,3);
+			}
 
 			for(int i =1;i<=8;i++){
 
@@ -78,7 +63,7 @@ public class Custparam_tmpr extends Driver{
 						cp.Param_val = "Pass";
 					}else
 					{
-						wrResult.WriteResult("tmpr","No data",i,3);
+						wrResult.WriteResult("tmpr","n",i,3);
 						System.out.println("Element not found");
 						cp.Param_val = "Fail";
 					}

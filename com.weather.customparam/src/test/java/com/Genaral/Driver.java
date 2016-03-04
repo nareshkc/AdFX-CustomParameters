@@ -12,6 +12,7 @@ public class Driver extends PropertyFile {
 
 	protected static WebDriver driver;
 	protected static AppiumDriver Ad ;
+	public static String Excel_Path =null;
 //	public void Dr()
 //	{
 //		driver=null;

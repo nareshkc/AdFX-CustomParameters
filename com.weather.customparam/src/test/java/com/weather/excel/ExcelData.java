@@ -15,9 +15,10 @@ public class ExcelData extends Driver {
 
     public String[][] excelread(String Type) throws Exception {
     	
-    	Driver.property();
-		PropertyFile.property();
-	File f = new File(properties.getProperty("ExcelFilePath"));
+//    	Driver.property();
+//		PropertyFile.property();
+    	String Path = properties.getProperty("RegisterExcelFilePath");
+	File f = new File(Path);
 	FileInputStream fis = new FileInputStream(f);
 	HSSFWorkbook wb = new HSSFWorkbook(fis);
 	HSSFSheet ws = wb.getSheet(Type);

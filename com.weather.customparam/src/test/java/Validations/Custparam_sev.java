@@ -28,6 +28,12 @@ public class Custparam_sev extends Driver{
 			data = er.excelread("sev");
 
 			Write_result wrResult = new Write_result();
+			
+			//fill n in last column
+			for(int filln = 1;filln<=7;filln++){
+				wrResult.WriteResult("sev","n",filln,4);
+			}
+			
 
 			for(int i=1;i<=7;i++){
 				// int val3 = Integer.parseInt(data[3][2]);

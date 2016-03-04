@@ -11,34 +11,43 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 
 import com.Genaral.Driver;
+import com.Genaral.PropertyFile;
 
 public class WriteResultintoExcel extends Driver {
 
-    public void enterResult(String sheetName, String Result, String Val, int rowIndex, int resultColIndex, int valueColIndex) {
+	public void enterResult(String sheetName, String Result, String Val, int rowIndex, int resultColIndex, int valueColIndex) {
+		String Path =null;
+		if(Excel_Path.equals("Login"))
+		{
+			Path =properties.getProperty("RegisterExcelFilePath");
+		}else
+		{
+			Path =properties.getProperty("AnonymousExcelFilePath");
+		}
 
-	try {
+		try {
 
-	    FileInputStream file = new FileInputStream(new File(properties.getProperty("ExcelFilePath")));
-	    HSSFWorkbook workbook = new HSSFWorkbook(file);
+			FileInputStream file = new FileInputStream(Path);
+			HSSFWorkbook workbook = new HSSFWorkbook(file);
 
-	    HSSFSheet sheet = workbook.getSheet(sheetName);
+			HSSFSheet sheet = workbook.getSheet(sheetName);
 
-	    Cell searchText3 = sheet.getRow(rowIndex).getCell(resultColIndex);
-	    searchText3.setCellValue(Result);
+			Cell searchText3 = sheet.getRow(rowIndex).getCell(resultColIndex);
+			searchText3.setCellValue(Result);
 
-	    Cell searchText4 = sheet.getRow(rowIndex).getCell(valueColIndex);
-	    searchText4.setCellValue(Val);
+			Cell searchText4 = sheet.getRow(rowIndex).getCell(valueColIndex);
+			searchText4.setCellValue(Val);
 
-	    file.close();
+			file.close();
 
-	    FileOutputStream outFile = new FileOutputStream(new File(properties.getProperty("ExcelFilePath")));
-	    workbook.write(outFile);
-	    outFile.close();
+			FileOutputStream outFile = new FileOutputStream(Path);
+			workbook.write(outFile);
+			outFile.close();
 
-	} catch (FileNotFoundException fnfe) {
-	    fnfe.printStackTrace();
-	} catch (IOException ioe) {
-	    ioe.printStackTrace();
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
 	}
-    }
 }

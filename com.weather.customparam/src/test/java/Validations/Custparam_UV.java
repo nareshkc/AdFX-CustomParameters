@@ -30,6 +30,12 @@ public class Custparam_UV extends Driver{
           
 				Write_result wrResult = new Write_result();
 				
+				//fill n in last column
+				for(int filln = 1;filln<=2;filln++){
+					wrResult.WriteResult("uv","n",filln,4);
+				}
+				
+				
 				int val1=Integer.parseInt(data[1][2]);
                 int val2 = Integer.parseInt(data[2][2]);
                // int val3 = Integer.parseInt(data[3][2]);

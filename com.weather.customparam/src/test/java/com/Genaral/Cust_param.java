@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.jetty.html.Page;
+import org.openqa.selenium.JavascriptExecutor;
 
 import Validations.Custparam_UV;
 import Validations.Custparam_fhic;
@@ -20,6 +21,7 @@ import Validations.Custparam_floc;
 import Validations.Custparam_fltmpc;
 import Validations.Custparam_hmid;
 import Validations.Custparam_sev;
+import Validations.Custparam_st;
 import Validations.Custparam_tmp;
 import Validations.Custparam_tmpr;
 import Validations.Custparam_wind;
@@ -55,19 +57,64 @@ public class Cust_param extends Driver {
 		MobileElement el = (MobileElement) Ad.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[2]");
 		el.click();
 
-
+	
+		
+        for(int feeds=1;feeds<=6;feeds++){
+        	
+        	String[][] data1 = new String[10][10];
+			ExcelData er1 = new ExcelData();
+			data1 = er1.excelread("SMOKE");
+			
+			int Getresult1 = feeds*2;
+			//Change values for entering result into all the feeds
+			int ResultColumn_n1=7+Getresult1;
+			int ResultColumn_n2=8+Getresult1;
+			
+			//Write results into Excel
+			WriteResultintoExcel wResult1 = new WriteResultintoExcel();
+			for(int testcase=1;testcase<=43;testcase++)
+			{
+				wResult1.enterResult("SMOKE", "n", "n", testcase, ResultColumn_n1, ResultColumn_n2);
+				
+			}
+			
+        }
+		
 		CustParam_Params cpp = new CustParam_Params();
 		cpp.params();
 		//Scroll for all feeds
-		for(int feed =1;feed<=pages.size();feed++)
+		for(int feed =1;feed<=pages.size()+1;feed++)
 		{
-			if(feed==pages.size()){
-				Scroll.scrolldown();
-			}else{
+			if(feed==pages.size()+1){
+				
+				if(Ad.findElementByName("© 2008-2016. The Weather Channel, LLC").isDisplayed()){
+					//UIAApplication[1]/UIAWindow[1]/UIACollectionView[1]/UIACollectionCell[1]/UIACollectionView[1]/UIACollectionCell[16]/UIAStaticText[1]
+				System.out.println("User on last page");
+				System.out.println("USer on end of the app");
+				}
+				else
+				{
+					Scroll.scrolldown();
+				}
+				
+				}else{
+					if(Excel_Path.toString().equals("Login")){
 
-				Scroll.scrolldown();
-				Scroll.scrolldown();
-			}
+						System.out.println("Verify for feed_"+feed);
+					}else
+					{
+						Scroll.scrolldown();
+						Scroll.scrolldown();
+					}
+					
+//					Scroll.scrolldown();
+//					Scroll.scrolldown();
+					
+				}
+				
+					
+				
+			
 			System.out.println("Scroll done for feed_"+feed);
 
 			//run command prompt for record logs through idevicesyslogs
@@ -211,6 +258,13 @@ public class Cust_param extends Driver {
 																		Custparam_fhic fhic = new Custparam_fhic();
 																		fhic.fhic();
 																	}
+//																	else
+//																		//************Validation for st param*******//
+//																		if(ParamType.equals("st"))
+//																		{
+//																			Custparam_st st = new Custparam_st();
+//																			st.st();
+//																		}
 
 
 									//Write results into Excel

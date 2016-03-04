@@ -32,9 +32,15 @@ public class Custparam_hmid extends Driver {
           
 				Write_result wrResult = new Write_result();
 				
+				//fill n in last column
+				for(int filln = 1;filln<=3;filln++){
+					wrResult.WriteResult("hmid","n",filln,4);
+				}
+				
+				
 				int val1=Integer.parseInt(data[1][2]);
                 int val2 = Integer.parseInt(data[2][2]);
-               // int val3 = Integer.parseInt(data[3][2]);
+                String val3 = (data[3][2]);
 				if(hmid>=val2){
 					
 					System.out.println("param limit is ::"+val2);
@@ -50,6 +56,15 @@ public class Custparam_hmid extends Driver {
 					System.out.println("Param Value is ::"+ data[1][3]);
 
 					wrResult.WriteResult("hmid",hmidvalue,1,4);
+					cp.Param_val = "Pass";
+
+					
+				}else if(hmidvalue==""){
+					
+					System.out.println("param limit is ::"+val3);
+					System.out.println("Param Value is ::"+ data[3][3]);
+
+					wrResult.WriteResult("hmid","nl",3,4);
 					cp.Param_val = "Pass";
 
 					
